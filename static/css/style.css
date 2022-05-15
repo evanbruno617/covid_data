@@ -1,0 +1,56 @@
+html,
+body,
+#map-container {
+    height: 95%;
+    width: 100%;
+}
+#mapid {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#inputs {
+    background-color:bisque;
+}
+
+#tables {
+    background-color: bisque;
+}
+
+#linecontainer {
+    background-color: bisque;
+    height:100%;
+}
+
+#line {
+    height: 100%;
+}
+
+#identity {
+    background-color: bisque;
+}
+
+.legend {
+    padding: 10px;
+    line-height: 18px;
+    color: #555;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #1a252f;
+    color: #fff;
+}

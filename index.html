@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Data | Evan Bruno</title>
+    <!--Leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand" href="index.html">Crime Data For Los Angeles Metropolitan Area</a>
+        </nav>
+    </div>
+    <div class = "row", id="inputs">
+        <div class="col-md-8">
+            <h4>Enter County</h4>
+            <select id="selDataset" onchange="handleClick(this.value)"></select>
+        </div>
+        <div class="col-md-1" id="year">
+            <h4>Enter Year</h4>
+            <select id="mapDataset" onchange="Click(this.value)"></select>
+        </div>
+        <div class="col-md-3" id="crimeChoice">
+            <h4>Enter Crime (See Map)</h4>
+            <select id="crime" onchange="MapCrime(this.value)"></select>
+        </div>
+    </div>
+    <div class="row" id="tables">
+        <div class="col-md-8">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Felony</th>
+                    <th>Violent Offenses</th>
+                    <th>Property Offenses</th>
+                    <th>Drug Offenses</th>
+                    <th>Sex Offences</th>
+                    <th>Other Offences</th>
+                    <th>Misdemeanor</th>
+                    <th>Status Offenses</th>
+                </tr>
+              </thead>
+              <tbody id="overview"></tbody>
+            </table>
+          </div>
+
+          <div class="col-md-3">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>Offense</th>
+                        <th>Los Angeles</th>
+                        <th>Orange</th>
+                        <th>Riverside</th>
+                        <th>San Bernadino</th>
+                        <th>Ventura</th>
+                        
+                    </tr>
+                  </thead>
+                  <tbody id="mapoverview"></tbody>
+                </table>
+            </div>
+    </div>
+
+<!-- The div that holds our map-->
+<div class="col-md-12" id="map-container">
+    <div id="mapid"></div>
+</div>
+
+<div class="col-md-12" id="linecontainer">
+    <div id="line"></div>
+    <p></p>
+</div>
+
+<!-- Footer -->
+<footer class="footer text-center" id="connect">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center text-uppercase mb-3">
+                    Connect with Me
+                </h2>
+                <p class="text-uppercase mb-4">
+                    evanbruno22@gmail.com
+                </p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a class="btn-social text-center rounded-circle" href="https://www.linkedin.com/in/evan-bruno-11bb82226/">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-social text-center rounded-circle" href="https://github.com/evanbruno617">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Leaflet Javascript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- API key -->
+<script type="text/javascript" src="static/js/config.js"></script>
+<!-- Our JavaScript -->
+<script type="text/javascript" src="static/js/data.js"></script>
+<script type="text/javascript" src="static/js/logic.js"></script>
+<script type="text/javascript" src="static/js/crime.js"></script>
+    
+</body>
+</html>
