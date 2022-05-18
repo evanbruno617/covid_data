@@ -1,5 +1,10 @@
 html,
-body,
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 #map-container {
     height: 95%;
     width: 100%;
@@ -13,9 +18,14 @@ body,
 
 #inputs {
     background-color:bisque;
+    
 }
 
 #tables {
+    background-color: bisque;
+}
+
+#table2 {
     background-color: bisque;
 }
 
@@ -54,3 +64,4 @@ body,
     background-color: #1a252f;
     color: #fff;
 }
+

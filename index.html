@@ -18,8 +18,11 @@
     crossorigin="anonymous"
     />
     <link rel="stylesheet" href="static/css/style.css">
+    <!-- Automatically fits device-->
+    <meta name="viewport" content="width=device-width">
 </head>
 <body>
+    
     <div class="wrapper">
         <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
             <a class="navbar-brand" href="index.html">Crime Data For Los Angeles Metropolitan Area</a>
@@ -30,17 +33,9 @@
             <h4>Enter County</h4>
             <select id="selDataset" onchange="handleClick(this.value)"></select>
         </div>
-        <div class="col-md-1" id="year">
-            <h4>Enter Year</h4>
-            <select id="mapDataset" onchange="Click(this.value)"></select>
-        </div>
-        <div class="col-md-3" id="crimeChoice">
-            <h4>Enter Crime (See Map)</h4>
-            <select id="crime" onchange="MapCrime(this.value)"></select>
-        </div>
     </div>
     <div class="row" id="tables">
-        <div class="col-md-8">
+        <div class="col-md-3">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -58,24 +53,39 @@
               <tbody id="overview"></tbody>
             </table>
           </div>
-
-          <div class="col-md-3">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                        <th>Offense</th>
-                        <th>Los Angeles</th>
-                        <th>Orange</th>
-                        <th>Riverside</th>
-                        <th>San Bernadino</th>
-                        <th>Ventura</th>
-                        
-                    </tr>
-                  </thead>
-                  <tbody id="mapoverview"></tbody>
-                </table>
-            </div>
     </div>
+    <div class = "row", id="inputs">
+    <div class="col-md-1" id="year">
+        <h4>Enter Year</h4>
+        <select id="mapDataset" onchange="Click(this.value)"></select>
+    </div>
+    <div class="col-md-3" id="crimeChoice">
+        <h4>Enter Crime (See Map)</h4>
+        <select id="crime" onchange="MapCrime(this.value)"></select>
+    </div>
+    </div>
+</div>
+
+<div class="row" id="tables">
+    <div class="col-md-8">
+    <div class="col-md-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>Offense</th>
+                <th>Los Angeles</th>
+                <th>Orange</th>
+                <th>Riverside</th>
+                <th>San Bernadino</th>
+                <th>Ventura</th>
+                
+            </tr>
+          </thead>
+          <tbody id="mapoverview"></tbody>
+        </table>
+    </div>
+    </div>
+</div>
 
 <!-- The div that holds our map-->
 <div class="col-md-12" id="map-container">
