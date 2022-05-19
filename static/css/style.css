@@ -8,6 +8,7 @@ body{
 #map-container {
     height: 95%;
     width: 100%;
+    background-color: bisque;
 }
 #mapid {
     width: 100%;
@@ -23,10 +24,7 @@ body{
 
 #tables {
     background-color: bisque;
-}
-
-#table2 {
-    background-color: bisque;
+    padding-left: 10px;
 }
 
 #linecontainer {
