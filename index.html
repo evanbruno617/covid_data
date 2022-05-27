@@ -22,13 +22,13 @@
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-    
+ <!-- Heading for page-->   
     <div class="wrapper">
             <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
                 <a class="navbar-brand" href="index.html">Crime Data For Los Angeles Metropolitan Area</a>
             </nav>
     </div>
-
+<!--Creates table for counties-->
         <div class="col-md-12", id="inputs">
             <h4>Enter County</h4>
             <select id="selDataset" onchange="handleClick(this.value)"></select>
@@ -52,12 +52,12 @@
               <tbody id="overview"></tbody>
             </table>
           </div>
-
+<!--creates table for crimes in a year-->
     <div id="inputs">
-    <div class="col-md-1" id="year">
-        <h4>Enter Year</h4>
-        <select id="mapDataset" onchange="Click(this.value)"></select>
-    </div>
+        <div class="col-md-1" id="year">
+            <h4>Enter Year</h4>
+            <select id="mapDataset" onchange="Click(this.value)"></select>
+        </div>
     </div>
 
     <div class="table-responsive" id="tables">
@@ -76,6 +76,8 @@
           <tbody id="mapoverview"></tbody>
         </table>
     </div>
+
+<!-- selects crime to display in the map-->
 <div id="inputs">
     <div class="col-md-3" id="crimeChoice">
         <h4>Enter Crime (See Map)</h4>
@@ -87,6 +89,7 @@
     <div id="mapid"></div>
 </div>
 
+<!--holds plot chart-->
 <div class="table-responsive" id="linecontainer">
     <div id="line"></div>
     <p></p>

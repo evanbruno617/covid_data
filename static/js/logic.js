@@ -1,45 +1,40 @@
-
-
+// street view for map
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         accessToken: LEAFLET
     });
-
+// staellite view for map
     let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             accessToken: LEAFLET
         });
 
-        // Create a base layer that holds both maps.
+// Create a base layer that holds both maps.
 let baseMaps = {
     "Streets": streets,
     "Satellite Streets": satelliteStreets
   };
 
+//create map
   let map = L.map("mapid", {
     center: [34.0522, -118.2437],
     zoom: 8,
     layers: [streets]
   })
 
-  // Pass our map layers into our layers control and add the layers control to the map.
-  L.control.layers(baseMaps).addTo(map);
-
-let myStyle = {
-  color: "blue",
-  fillColor: "yellow",
-  weight: 1
-}
-
+// Pass our map layers into our layers control and add the layers control to the map.
+L.control.layers(baseMaps).addTo(map);
+// select id for table 
 maptbody = d3.select("#mapoverview")
 
+//calls input 
 function Click(filter){
   maptbody.html("");
-
+  //creates array for crime names
   var crimeNames = ["Felony Offenses", "Violent Offenses", "Property Offenses", "Drug Offenses", "Sex Offenses", "Other Offenses", "Misdemeanor", "Status Offenses"]
-
+    //creates table with new year
     for (let i = 0; i < 8; i++){
       let row = maptbody.append("tr");
       let title = row.append("td");
@@ -166,30 +161,34 @@ function MapCrime(crime){
   });
 
 }
-
+// inital function
 function intial(){
   let options = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
 
   for (x in options){
     var selector = d3.select("#mapDataset");
-
+    // pushes options
     selector.append("option").text(options[x]).property("value", options[x]);
   }
 
-
+//clears table
   maptbody.html("");
 
+  //creates array with crime names
   var crimeNames = ["Felony Offenses", "Violent Offenses", "Property Offenses", "Drug Offenses", "Sex Offenses", "Other Offenses", "Misdemeanor", "Status Offenses"]
-
+  //iterates through names
   for (x in crimeNames){
+    //selects crime choice id for input
     let selector = d3.select("#crime")
-
+    //appends options to input
     selector.append("option").text(crimeNames[x]).property("value", crimeNames[x]);
   }
+  //creates inital table iterates through crime names
     for (let i = 0; i < 8; i++){
       let row = maptbody.append("tr");
       let title = row.append("td");
       title.text(crimeNames[i])
+      // pushes crime data for 2011
       row.append("td").text(laMetro[2011][i])
       row.append("td").text(orange[2011][i])
       row.append("td").text(riverside[2011][i])
@@ -198,49 +197,18 @@ function intial(){
       
     };
 
+    // display counties in map
     d3.json("static/json/counties.json").then(function(data){
-
-      console.log(data)
+      // creates polygons with geoJSON
       L.geoJSON(data, {
         onEachFeature: function(feature, layer){
-          console.log(feature.properties.crimes[0]["2011"][0])
+          //displayes the name of each county
           layer.bindPopup("<h2>" + feature.properties.name + "</h2><hr>")
         }
       }).addTo(map);
     });
-
-    let legend = L.control({
-      position: "bottomright"
-    });
-  
-    // Then add all the details for the legend.
-  //legend.onAdd = function() {
-  //    let div = L.DomUtil.create("div", "info legend");
-  //    const magnitudes = [0, 1000, 5000, 20000, 30000, 50000];
-  //const colors = [
-  //  "#98ee00",
-  //  "#d4ee00",
-  //  "#eecc00",
-  //  "#ee9c00",
-  //  "#ea822c",
-  //  "#ea2c2c"
-  //];
-      // Looping through our intervals to generate a label with a colored square for each interval.
-  //for (var i = 0; i < magnitudes.length; i++) {
-  //    console.log(colors[i]);
-   //   div.innerHTML +=
-  //      "<i style='background: " + colors[i] + "'></i> " +
-  //      magnitudes[i] + (magnitudes[i + 1] ? "&ndash;" + magnitudes[i + 1] + "<br>" : "+");
-  // }
-  //  return div;
- // };
-  
-  //legend.addTo(map);
-
-
-
   };
-
+//calls initial function
 intial()
 
 
