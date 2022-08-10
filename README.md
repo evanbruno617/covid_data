@@ -17,3 +17,9 @@ Then this is a final visualization at the bottom of the page displaying a graph 
 
 ![image](https://github.com/evanbruno617/crime-data-LA/blob/main/Resources/plot.png)
 
+---
+
+#Visualization
+
+[LA Crime Data](https://evanbruno617.github.io/crime-data-LA/)
+
