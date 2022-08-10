@@ -19,7 +19,7 @@ Then this is a final visualization at the bottom of the page displaying a graph 
 
 ---
 
-#Visualization
+# Visualization
 
 [LA Crime Data](https://evanbruno617.github.io/crime-data-LA/)
 
